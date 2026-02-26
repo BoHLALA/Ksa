@@ -3,7 +3,7 @@
 TOKEN="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"
 
 FILE="BootLogo.tar.gz"
-URL="https://raw.githubusercontent.com/BoHLALA/Ksa/main/Plugins/$FILE"
+URL="https://raw.githubusercontent.com/BoHLALA/Ksa/main/3_Plugins/$FILE"
 TMP="/var/volatile/tmp/$FILE"
 
 echo "============================================================="
@@ -35,3 +35,4 @@ if [ -f "$TMP" ]; then
 else
     echo "Download failed!"
 fi
+
