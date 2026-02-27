@@ -1,13 +1,13 @@
 #!/bin/sh
 
 FILE="BootLogo.tar.gz"
-URL="https://www.dropbox.com/scl/fi/wxgobrnsm7et7awrxdnkm/BootLogo.tar.gz?rlkey=8lwde1cta3v3y2l65zhm3d2bh&st=day9fkwb&dl=1"
+URL="https://dl.dropboxusercontent.com/s/wxgobrnsm7et7awrxdnkm/BootLogo.tar.gz"
 TMP="/var/volatile/tmp/$FILE"
 
 SEP="#############################################################"
 
 echo "$SEP"
-echo "#            Downloading $FILE ...                          #"
+echo "#            Downloading BootLogo package ...               #"
 echo "$SEP"
 
 wget -O "$TMP" "$URL"
@@ -43,4 +43,3 @@ else
     echo "#   DOWNLOAD FAILED (File Not Found or Corrupted)           #"
     echo "$SEP"
 fi
-
