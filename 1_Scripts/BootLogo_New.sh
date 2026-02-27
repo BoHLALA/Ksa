@@ -1,25 +1,22 @@
 #!/bin/sh
 
-TOKEN="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"
-
 FILE="BootLogo.tar.gz"
-API_URL="https://api.github.com/repos/BoHLALA/Ksa/contents/3_Plugins/$FILE?ref=main"
+URL="https://github.com/BoHLALA/Ksa/releases/download/v1.0.0/BootLogo.tar.gz"
 TMP="/var/volatile/tmp/$FILE"
 
-echo "============================================================="
-echo "Downloading $FILE using GitHub API ..."
-echo "============================================================="
+SEP="#############################################################"
 
-wget \
-  --header="Authorization: token $TOKEN" \
-  --header="Accept: application/octet-stream" \
-  -O "$TMP" \
-  "$API_URL"
+echo "$SEP"
+echo "#            Downloading $FILE ...                          #"
+echo "$SEP"
+
+wget -O "$TMP" "$URL"
 
 if [ -f "$TMP" ]; then
     echo ""
-    echo "Extracting ..."
-    echo "============================================================="
+    echo "$SEP"
+    echo "#                 Extracting files ...                      #"
+    echo "$SEP"
 
     tar -xzvf "$TMP" -C /
     RESULT=$?
@@ -27,9 +24,9 @@ if [ -f "$TMP" ]; then
     rm -f "$TMP"
 
     if [ $RESULT -eq 0 ]; then
-        echo "#############################################################"
-        echo "#     BootLogo INSTALLED SUCCESSFULLY - By BoHLALA          #"
-        echo "#############################################################"
+        echo "$SEP"
+        echo "#   BootLogo INSTALLED SUCCESSFULLY - By BoHLALA            #"
+        echo "$SEP"
 
         if which systemctl > /dev/null 2>&1; then
             sleep 2; systemctl restart enigma2
@@ -37,8 +34,12 @@ if [ -f "$TMP" ]; then
             init 4; sleep 4; init 3
         fi
     else
-        echo ">>>> INSTALLATION FAILED (Extraction Error) <<<<"
+        echo "$SEP"
+        echo "#      INSTALLATION FAILED (Extraction Error)               #"
+        echo "$SEP"
     fi
 else
-    echo ">>>> DOWNLOAD FAILED (File Not Found or Corrupted) <<<<"
+    echo "$SEP"
+    echo "#   DOWNLOAD FAILED (File Not Found or Corrupted)           #"
+    echo "$SEP"
 fi
