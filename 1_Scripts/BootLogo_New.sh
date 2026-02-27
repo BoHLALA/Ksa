@@ -1,7 +1,7 @@
 #!/bin/sh
 
 FILE="BootLogo.tar.gz"
-URL="https://github.com/BoHLALA/Ksa/releases/download/v1.0.0/BootLogo.tar.gz"
+URL="https://www.dropbox.com/scl/fi/wxgobrnsm7et7awrxdnkm/BootLogo.tar.gz?rlkey=8lwde1cta3v3y2l65zhm3d2bh&st=day9fkwb&dl=1"
 TMP="/var/volatile/tmp/$FILE"
 
 SEP="#############################################################"
@@ -43,3 +43,4 @@ else
     echo "#   DOWNLOAD FAILED (File Not Found or Corrupted)           #"
     echo "$SEP"
 fi
+
