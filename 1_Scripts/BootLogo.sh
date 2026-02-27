@@ -10,7 +10,7 @@ echo "$SEP"
 echo "#            Downloading $FILE ...                          #"
 echo "$SEP"
 
-wget -O "$TMP" "$URL"
+curl -L -o "$TMP" "$URL"
 
 if [ -f "$TMP" ]; then
     echo ""
@@ -25,7 +25,7 @@ if [ -f "$TMP" ]; then
 
     if [ $RESULT -eq 0 ]; then
         echo "$SEP"
-        echo "#   BootLogo INSTALLED SUCCESSFULLY - By BoHLALA .. ^_^ #"
+        echo "#   BootLogo INSTALLED SUCCESSFULLY - By BoHLALA            #"
         echo "$SEP"
 
         if which systemctl > /dev/null 2>&1; then
