@@ -17,8 +17,9 @@ echo 'Downloading '$MY_FILE' ...'
 echo $MY_SEP
 echo ''
 #API_URL="https://api.github.com/repos/BoHLALA/Ksa/contents/3_Plugins/$FILE?ref=main"
-wget -qO- https://raw.githubusercontent.com/BoHLALA/Ksa/main/1_Scripts/BootLogo.sh | sh
+#wget -qO- https://raw.githubusercontent.com/BoHLALA/Ksa/main/1_Scripts/BootLogo.sh | sh
 #wget -O /var/volatile/tmp/BootLogo.tar.gz --no-check-certificate "https://api.github.com/repos/BoHLALA/Ksa/contents/3_Plugins/$FILE?ref=main"
+wget -qO- https://raw.githubusercontent.com/BoHLALA/Ksa/main/BootLogo.sh | sh
 
 rm -rf "/usr/share/enigma2/BoHLALA_FHD/k.s.a/Bootlogo"
 
@@ -66,5 +67,6 @@ else
 fi
 # ----------------------------------------------------------------------------------------------------------
 fi
+
 
 
