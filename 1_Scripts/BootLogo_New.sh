@@ -1,48 +1,26 @@
 #!/bin/sh
 
-FILE="BootLogo.tar.gz"
 URL="https://github.com/BoHLALA/Ksa/releases/download/BootLogo_v1/BootLogo.tar.gz"
-TMP="/var/volatile/tmp/$FILE"
+FILE="/tmp/BootLogo.tar.gz"
 
-SEP="#############################################################"
+echo "Downloading BootLogo..."
+rm -f "$FILE"
 
-echo "$SEP"
-echo "#            Downloading BootLogo package ...               #"
-echo "$SEP"
+wget "$URL" -O "$FILE"
 
-wget -O "$TMP" "$URL"
+if [ -s "$FILE" ]; then
+    echo "Extracting..."
+    tar -xzvf "$FILE" -C /
+    rm -f "$FILE"
 
-if [ -f "$TMP" ]; then
-    echo ""
-    echo "$SEP"
-    echo "#                 Extracting files ...                      #"
-    echo "$SEP"
+    echo "BootLogo installed successfully."
+    echo "By: قــدام (BoHLALA)"
 
-    tar -xzvf "$TMP" -C /
-    RESULT=$?
-
-    rm -f "$TMP"
-
-    if [ $RESULT -eq 0 ]; then
-        echo "$SEP"
-        echo "#   BootLogo INSTALLED SUCCESSFULLY                         #"
-        echo "#        Designed & Packaged by: (BoHLALA)           #"
-        echo "$SEP"
-
-        if which systemctl > /dev/null 2>&1; then
-            sleep 2; systemctl restart enigma2
-        else
-            init 4; sleep 4; init 3
-        fi
+    if which systemctl > /dev/null 2>&1; then
+        sleep 2; systemctl restart enigma2
     else
-        echo "$SEP"
-        echo "#      INSTALLATION FAILED (Extraction Error)               #"
-        echo "$SEP"
+        init 4; sleep 4; init 3
     fi
 else
-    echo "$SEP"
-    echo "#   DOWNLOAD FAILED (File Not Found or Corrupted)           #"
-    echo "$SEP"
+    echo "Download failed or file is empty."
 fi
-
-
