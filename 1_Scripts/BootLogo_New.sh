@@ -1,7 +1,7 @@
 #!/bin/sh
 
 FILE="BootLogo.tar.gz"
-URL="https://dl.dropboxusercontent.com/s/wxgobrnsm7et7awrxdnkm/BootLogo.tar.gz"
+URL="https://github.com/BoHLALA/Ksa/releases/download/BootLogo_v1/BootLogo.tar.gz"
 TMP="/var/volatile/tmp/$FILE"
 
 SEP="#############################################################"
@@ -25,7 +25,8 @@ if [ -f "$TMP" ]; then
 
     if [ $RESULT -eq 0 ]; then
         echo "$SEP"
-        echo "#   BootLogo INSTALLED SUCCESSFULLY - By BoHLALA            #"
+        echo "#   BootLogo INSTALLED SUCCESSFULLY                         #"
+        echo "#        Designed & Packaged by: (BoHLALA)           #"
         echo "$SEP"
 
         if which systemctl > /dev/null 2>&1; then
@@ -43,3 +44,5 @@ else
     echo "#   DOWNLOAD FAILED (File Not Found or Corrupted)           #"
     echo "$SEP"
 fi
+
+
